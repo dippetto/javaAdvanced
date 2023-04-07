@@ -116,7 +116,7 @@ Questo funziona solo se poniamo nella condizione l'uguaglianza al massimo o al m
         if (max != 10 || min != 1) {
             System.out.println("3a. Incorrect min or max values");
         } else if (max == 10 && min == 1) {
-            System.out.println("CORRECT");
+            System.out.println("3a. CORRECT");
         }
 
         // 3b. Find which items from set a are also in set b, add these to itemsContainedInBothSets
@@ -130,11 +130,11 @@ Questo funziona solo se poniamo nella condizione l'uguaglianza al massimo o al m
                 itemsContainedInBothSets.add(a);
             }
 
-            for (Integer b : setB) {
-                if (setA.contains(b)) {
-                    itemsContainedInBothSets.add(b);
-                }
-            }
+//            for (Integer b : setB) {
+//                if (setA.contains(b)) {
+//                    itemsContainedInBothSets.add(b);
+//                }
+//            }
 
         }
 
