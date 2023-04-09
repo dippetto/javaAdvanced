@@ -34,6 +34,7 @@ public class Main {
                 """;
         if (!Files.exists(MY_PATH)) {
             createFile();
+            writeFile(myString);
         } else {
             writeFile(myString);
         }
