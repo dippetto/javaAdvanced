@@ -19,6 +19,10 @@ public class Main {
      */
     private static void exercise1() {
         System.out.println("Exercise 1: ");
+        CreateTestCheck();
+    }
+
+    private static void CreateTestCheck() {
         try {
             Files.createFile(Path.of("Test.txt"));
         } catch (IOException ioException) {
@@ -37,15 +41,19 @@ public class Main {
      */
     private static void exercise2() {
         System.out.println("\nExercise 2: ");
+        ReadFileTest();
+
+
+        String userInputFileName = "test-file.txt";
+    }
+
+    private static void ReadFileTest() {
         try {
             Files.readString(Path.of("test-file.txt"));
         } catch (IOException exception) {
             // exception.printStackTrace();      l'ho commentato dopo aver capito quale fosse il problema così da dirlo in console con parole semplici.
             System.out.println("file can not be found");
         }
-
-
-        String userInputFileName = "test-file.txt";
     }
 
     /**
@@ -57,6 +65,10 @@ public class Main {
      */
     private static void exercise3() {
         System.out.println("\nExercise 3: ");
+        CheckIfInteger();
+    }
+
+    private static void CheckIfInteger() {
         try {
             Integer.parseInt("house");
             int a = 10 / 0;
@@ -81,11 +93,26 @@ public class Main {
         int num1 = 10;
 
         String num2AsString = "0";
+        ArithmeticException(num1, num2AsString);
+
+    }
+
+    private static void ArithmeticException(int num1, String num2AsString) {
         try {
             System.out.println(num1 / Integer.parseInt(num2AsString));
         } catch (ArithmeticException exception) {
             System.out.println("Eccezione aritmetica");
         }
-
     }
+    // Stavo provando a creare una funzione che capisse da sola quale eccezione fosse così da usare la stessa ma non riesco a capire come, forse con
+    // print.trace e qualche funzione insieme si potrebbe fare ma è pasqua oggi, ci penserò qualche altro giorno
+//    private static void CheckException(int num1, String num2AsString) {
+//        try {
+//            System.out.println(num1 / Integer.parseInt(num2AsString));
+//        } catch (Exception exception) {
+//            switch (exception) {
+//                case ArithmeticException ->   System.out.println("Eccezione aritmetica");
+//            }
+//        }
+//    }
 }
