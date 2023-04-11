@@ -1,7 +1,7 @@
 package _8;
 
 class Animal {
-    private double height, weight;
+    protected double height, weight;
 
     public Animal(double height, double weight) {
         this.height = height;
@@ -22,5 +22,8 @@ class Animal {
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+    public void print(){
+        System.out.println(this.height+" "+this.weight);
     }
 }
