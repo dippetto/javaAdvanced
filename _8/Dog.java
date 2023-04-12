@@ -3,11 +3,17 @@ package _8;
 public class Dog extends Animal{
     private String breed;
     private double speed;
+    private String animalType="Dog";
 
-    public Dog(double height, double weight, String breed) {
-        super(height, weight);
+    public Dog(double height, double weight, String breed,String animalType) {
+        super(height, weight,animalType);
         this.breed = breed;
         this.speed=speed;
+        this.animalType=animalType;
+    }
+
+    public String getAnimalType() {
+        return animalType;
     }
 
     public String getBreed() {
@@ -17,12 +23,14 @@ public class Dog extends Animal{
     public void setBreed(String breed) {
         this.breed = breed;
     }
-  public static Object runSpeedMetersPerSecond(Dog dog){
+  public static double runSpeedMetersPerSecond(Dog dog){
      double  result= dog.getHeight()*2;
-      System.out.println("the Dog's Height * 2 is "+result);
+      dog.speed=result;
      return result;
    }
-   @Override
+
+
+    @Override
     public void print(){
        System.out.println(this.height+" "+this.weight+" "+this.getBreed());
    }

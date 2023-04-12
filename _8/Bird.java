@@ -3,11 +3,17 @@ package _8;
 public class Bird extends Animal{
     private double wingSpan;
     private double speed;
+    private String animalType="Bird";
 
-    public Bird(double height, double weight, double wingSpan) {
-        super(height, weight);
+    public Bird(double height, double weight, double wingSpan,String animalType) {
+        super(height, weight,animalType);
         this.wingSpan = wingSpan;
         this.speed=speed;
+        this.animalType=animalType;
+    }
+
+    public String getAnimalType() {
+        return animalType;
     }
 
     public double getWingSpan() {
@@ -17,11 +23,12 @@ public class Bird extends Animal{
     public void setWingSpan(double wingSpan) {
         this.wingSpan = wingSpan;
     }
-    public static Object flySpeedMetersPerSecond(Bird bird){
+    public static double flySpeedMetersPerSecond(Bird bird){
         double  result= bird.getWingSpan()*4;
-        System.out.println("the Bird's Wingspan * 4 is "+result);
+        bird.speed=result;
         return result;
     }
+
     @Override
     public void print(){
         System.out.println(this.height+" "+this.weight+" "+this.wingSpan);

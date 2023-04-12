@@ -36,8 +36,8 @@ public class Exercises {
 
     private static void exercise1() {
         System.out.println("\nExercise 1: ");
-        Dog dog1 = new Dog(2.0d, 6d, "Pastore abbruzzese");
-        Dog dog2 = new Dog(9.0d, 3d, "O'frat");
+        Dog dog1 = new Dog(2.0d, 6d, "Pastore abbruzzese","Dog");
+        Dog dog2 = new Dog(9.0d, 3d, "O'frat","Dog");
         printDog(dog1);
         printDog(dog2);
 
@@ -73,8 +73,8 @@ public class Exercises {
 
     private static void exercise2() {
         System.out.println("\nExercise 2: ");
-        Bird bird1 = new Bird(3d, 5d, 2d);
-        Fish fish1 = new Fish(2d, 3d, "Padulo");
+        Bird bird1 = new Bird(3d, 5d, 2d,"Bird");
+        Fish fish1 = new Fish(2d, 3d, "Padulo","Fish");
         printBird(bird1);
         printFish(fish1);
     }
@@ -103,21 +103,34 @@ public class Exercises {
         System.out.println(dog.getWeight() + " " + dog.getHeight() + " " + dog.getBreed());
     }
 
+
     private static void exercise3() {
         System.out.println("\nExercise 3: ");
-        Dog dog1 = new Dog(2.0d, 6d, "Pastore abbruzzese");
-        runSpeedMetersPerSecond(dog1);
-        Fish fish1 = new Fish(2d, 3d, "Padulo");
-        swimSpeedMetersPerSecond(fish1);
-        Bird bird1 = new Bird(3d, 5d, 2d);
-        flySpeedMetersPerSecond(bird1);
-        List<Animal> animalList = new ArrayList<>();
-        animalList.add(dog1);
-        animalList.add(fish1);
-        animalList.add(bird1);
-        for (Animal animale : animalList) {
-            animale.print();
+        Dog dog1 = new Dog(2.0d, 6d, "Pastore abbruzzese","Dog");
+        System.out.println("the Dog's Height * 2 is "+runSpeedMetersPerSecond(dog1));
+        Fish fish1 = new Fish(2d, 3d, "Padulo","Fish");
+        System.out.println("the Fish's Weight * 2 is "+swimSpeedMetersPerSecond(fish1));
+        Bird bird1 = new Bird(3d, 5d, 2d,"Bird");
+        System.out.println("the Bird's Wingspan * 4 is "+flySpeedMetersPerSecond(bird1));
+        List<Animal> speedList = new ArrayList<>();
+        speedList.add(dog1);
+        speedList.add(fish1);
+        speedList.add(bird1);
+
+        double maxSpeed=0d;
+        for (Animal animale : speedList) {
+            double currentAnimalSpeed=0;
+            switch(animale.getAnimalType()){
+                case "Dog"-> currentAnimalSpeed=runSpeedMetersPerSecond(dog1);
+                case"Fish"-> currentAnimalSpeed=swimSpeedMetersPerSecond(fish1);
+                case "Bird"-> currentAnimalSpeed=flySpeedMetersPerSecond(bird1);
+            }
+
+            if(currentAnimalSpeed>maxSpeed){
+                maxSpeed=currentAnimalSpeed;
+            }
         }
+        System.out.println("The faster is going "+maxSpeed+"m/s");
 
 
     }
