@@ -117,22 +117,26 @@ public class Exercises {
         speedList.add(fish1);
         speedList.add(bird1);
 
-        double maxSpeed=0d;
+        fasterAnimal(dog1, fish1, bird1, speedList);
+
+
+    }
+
+    private static void fasterAnimal(Dog dog1, Fish fish1, Bird bird1, List<Animal> speedList) {
+        double maxSpeed = 0d;
         for (Animal animale : speedList) {
-            double currentAnimalSpeed=0;
-            switch(animale.getAnimalType()){
-                case "Dog"-> currentAnimalSpeed=runSpeedMetersPerSecond(dog1);
-                case"Fish"-> currentAnimalSpeed=swimSpeedMetersPerSecond(fish1);
-                case "Bird"-> currentAnimalSpeed=flySpeedMetersPerSecond(bird1);
+            double currentAnimalSpeed = 0;
+            switch (animale.getAnimalType()) {
+                case "Dog" -> currentAnimalSpeed = runSpeedMetersPerSecond(dog1);
+                case "Fish" -> currentAnimalSpeed = swimSpeedMetersPerSecond(fish1);
+                case "Bird" -> currentAnimalSpeed = flySpeedMetersPerSecond(bird1);
             }
 
-            if(currentAnimalSpeed>maxSpeed){
-                maxSpeed=currentAnimalSpeed;
+            if (currentAnimalSpeed > maxSpeed) {
+                maxSpeed = currentAnimalSpeed;
             }
         }
-        System.out.println("The faster is going "+maxSpeed+"m/s");
-
-
+        System.out.println("The faster is going " + maxSpeed + "m/s");
     }
 
 }
